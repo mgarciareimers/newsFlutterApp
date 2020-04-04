@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp/src/pages/tab2_page.dart';
 import 'package:provider/provider.dart';
+
+import 'package:newsapp/src/pages/tab1_page.dart';
 
 class TabsPage extends StatelessWidget {
   @override
@@ -26,8 +29,8 @@ class _Pages extends StatelessWidget {
       //physics: BouncingScrollPhysics(),
       physics: NeverScrollableScrollPhysics(),
       children: <Widget>[
-        Container(color: Colors.red),
-        Container(color: Colors.green),
+        Tab1Page(),
+        Tab2Page(),
       ],
     );
   }
@@ -69,6 +72,4 @@ class _NavigationModel with ChangeNotifier {
 
   // Current page get.
   PageController get pageController => this._pageController;
-
-
 }
