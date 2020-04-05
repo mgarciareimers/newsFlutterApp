@@ -5,12 +5,14 @@ import 'package:newsapp/src/theme/dark_theme.dart';
 
 class NewsList extends StatelessWidget {
   final List<ArticleModel> news;
+  final ScrollController scrollController;
 
-  const NewsList(this.news);
+  const NewsList(this.news, this.scrollController);
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      controller: this.scrollController,
       itemCount: this.news.length,
       physics: BouncingScrollPhysics(),
       itemBuilder: (BuildContext context, int index) {
@@ -110,7 +112,7 @@ class _BodyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15),
-      child: Text(dailyNew != null ? dailyNew.description : ''),
+      child: Text(dailyNew == null || dailyNew.description == null ? '' : dailyNew.description),
     );
   }
 }
